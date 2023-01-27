@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import "./variables.scss";
+
+.header {
+    height: 85vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(./imagenes/artificial-intelligence-g6056dd00e_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 30px;
+        padding-left: 3%;
+        padding-right: 3%;
+        .logo {
+            color: $color3;
+            font-size: $f-m;
+            a {
+                color: $color2;
+                text-decoration: none;
+                span {
+                    color: $color3;
+                }
+            }
+        }
+        ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: $f-m;
+            a {
+                color: $color2;
+                text-decoration: none;
+                font-weight: bold;
+                
+            }
+            a:hover {
+                color: $color3;
+            }
+        }
+        button {
+            background: $color1;
+            cursor: pointer;
+            border: none;
+            padding: 16px 32px;
+            color: $color2;
+            font-size: $f-l;
+            font-weight: bold;
+            position: relative;
+            border-radius: 50px;
+            z-index: 0;
+            transition: all 1s;
+        }
+    }
+    .menu button {
+        background: $color1;
+        cursor: pointer;
+        border: none;
+        padding: 16px 32px;
+        color: $color2;
+        font-size: $f-m;
+        font-weight: bold;
+        position: relative;
+        border-radius: 50px;
+        z-index: 0;
+        transition: all 1s;
+    }
+}
+
+//el boton magico
+button::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, $color3, $color1, skyblue, $color1, $color3, $color1, skyblue, $color1);
+    background-size: 800%;
+    border-radius: 50px;
+    filter: blur(10px);
+    animation: glowing 50s ease-in-out infinite;
+}
+button:hover {
+    transform: scale(1.1);
+}
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 300% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+//nav responsive
+.menu {
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    .nav-links, .btn {
+        display: none;
+    }
+    .menu {
+        display: inherit;
+    }
+}
+.header {
+    a {
+        text-decoration: none;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0 , 0.9);
+        overflow: hidden;
+        transition: all 0.5s ease 0s;
+        .overlay-content {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        a {
+            padding: 15px;
+            font-size: $f-l;
+            display: block;
+            transition: all 0.5s ease 0s;
+            font-weight: 700;
+            color: $color2;
+        }
+        a:hover,
+        a:focus {
+            color: $color3;
+            text-decoration: underline;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: $f-xl;
+        }
+    }
+    
+}
+@media screen and (max-height: 450px) {
+    .header {
+        .overlay {
+            a {
+                font-size: $f-m;
+            }
+            .close {
+                font-size: $f-xl;
+                top: 15px;
+                right: 35px;
+            }
+        }
+    }
+}
+
+
+main {
+    .introduccion {
+        height: 15vh;
+        width: 100%;
+        background-color: $color1;
+        color: $color2;
+        font-size: $f-s;
+        text-align: center;
+        align-content: center;
+        padding: 5vh;
+    }
+}
+
+
+footer {
+    height: 50vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0 , 0.9);
+}
