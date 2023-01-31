@@ -284,6 +284,7 @@ main {
     }
 }
 
+
 //footer responsive
 @media (max-width: 767px) {
     .footer-col {
@@ -295,5 +296,44 @@ main {
     .footer-col {
         width: 100% !important;
         margin-bottom: 50px;
+    }
+}
+@media (max-height: 900px) {
+    .footer {
+        height: auto !important;
+        padding: 70px 0 0 0;
+        .pie {
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px 15px 20px;
+        }
+    }
+}
+
+
+//galaxy fold
+@media screen and (max-width: 300px) {
+    .header {
+        nav .logo,
+        .menu button {
+            font-size: $f-xs;
+        }
+    }
+    main .introduccion {
+        font-size: $f-xs;
+        padding: 30px 0;
+    }
+    .footer {
+        height: 85vh;
+        .footer-col {
+            h4 {
+                font-size: $f-xs;
+            }
+        }
+        .pie {
+            .logo {
+                font-size: 12px;
+            }
+        }
     }
 }
