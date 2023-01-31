@@ -5,9 +5,9 @@
 }
 
 @import "./variables.scss";
- body {
+body {
     font-family: $f-roboto;
- }
+}
 .header {
     height: 85vh;
     width: 100%;
@@ -91,7 +91,7 @@ button::before {
     filter: blur(8px);
     animation: glowing 50s ease-in-out infinite;
 }
-
+//animacion del boton
 @keyframes glowing {
     0% {
         background-position: 0 0;
