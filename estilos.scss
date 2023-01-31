@@ -41,7 +41,7 @@
                 color: $color2;
                 text-decoration: none;
                 font-weight: bold;
-                
+                transition: all 1s ease-in-out;
             }
             a:hover {
                 color: $color3;
@@ -62,7 +62,7 @@
         }
     }
     .menu button {
-        // background: $color1;
+        background: rgba(0, 0, 0 , 0);
         cursor: pointer;
         border: none;
         padding: 16px 32px;
@@ -88,7 +88,7 @@ button::before {
     background: linear-gradient(45deg, $color3, $color1, blue, $color1, $color3, $color1, blueviolet, $color1);
     background-size: 800%;
     border-radius: 50px;
-    filter: blur(10px);
+    filter: blur(8px);
     animation: glowing 50s ease-in-out infinite;
 }
 
@@ -269,11 +269,10 @@ main {
     .pie {
         width: 100%;
         text-align: center;
-        padding: 0;
-        margin-bottom: auto;
+        padding: 30px 20px;
         .logo {
             color: $color3;
-            font-size: $f-s;
+            font-size: $f-xs;
             a {
                 color: $color2;
                 text-decoration: none;
