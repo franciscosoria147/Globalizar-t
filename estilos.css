@@ -7,6 +7,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
 }
 
 .header {
@@ -45,7 +46,7 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .header nav ul li a:hover {
   color: #00ffff;
@@ -192,6 +193,160 @@ main .introduccion h2 {
   font-style: italic;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #151515;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+main .portfolio {
+  width: 30%;
+  padding-left: 15px;
+}
+main .portfolio h1 {
+  font-size: 28px;
+}
+main .portfolio p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+main .proyectos {
+  width: 70%;
+  display: flex;
+}
+main .card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 20px;
+  margin-inline: 30px;
+}
+main .card .circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .card .circle .logo {
+  position: relative;
+  width: 240px;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+main .card .circle .logo h1 {
+  font-size: 38px;
+  color: #fff;
+  text-align: center;
+}
+main .card .circle .logo h1 span {
+  color: skyblue;
+}
+main .card .circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: #191919;
+  border: 5px solid var(--clr);
+  filter: drop-shadow(0 0 5px var(--clr)) drop-shadow(0 0 40px var(--clr));
+  transition: 0.5s, background 0.5s;
+  transition-delay: 0.75s, 1s;
+}
+main .card .content {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  padding: 20px 20px 20px 40px;
+  opacity: 0;
+  transition: 0.5s;
+  visibility: hidden;
+}
+main .card .content h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+main .card .content p {
+  color: #fff;
+  margin-top: 15px;
+}
+main .card .content a {
+  position: relative;
+  color: #111;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+}
+main .card:hover {
+  width: 300px;
+  transition-delay: 0.5s;
+}
+main .card:hover .circle .logo {
+  transform: scale(0);
+  transition-delay: 0s;
+}
+main .card:hover .content {
+  transition-delay: 0.75s;
+  opacity: 1;
+  visibility: visible;
+  left: 0;
+}
+main .card:hover .circle::before {
+  transition-delay: 0.5s;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--clr);
+}
+
+@media (max-width: 860px) {
+  main {
+    display: grid;
+    grid-template: "portfolio" 200px "proyectos" auto 300px;
+    height: auto;
+  }
+  main .portfolio {
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+  }
+  main .proyectos {
+    display: grid;
+    padding: 10%;
+  }
+  main .proyectos .card,
+main .proyectos .circle {
+    min-width: auto;
+    margin-block: 30px;
+    align-content: center;
+    align-items: center;
+  }
+  main .proyectos .content {
+    padding: 20px 20px 20px 40px;
+    text-align: center;
+  }
+}
 .footer {
   height: 85vh;
   width: 100%;

@@ -7,6 +7,7 @@
 @import "./variables.scss";
 body {
     font-family: $f-roboto;
+    scroll-behavior: smooth;
 }
 .header {
     height: 85vh;
@@ -41,7 +42,7 @@ body {
                 color: $color2;
                 text-decoration: none;
                 font-weight: bold;
-                transition: all 1s ease-in-out;
+                transition: all 0.5s ease-in-out;
             }
             a:hover {
                 color: $color3;
@@ -75,6 +76,8 @@ body {
         transition: all 1s;
     }
 }
+
+
 
 //el boton magico
 button::before {
@@ -179,7 +182,6 @@ button::before {
 
 
 
-
 main {
     .introduccion {
         height: 15vh;
@@ -196,6 +198,171 @@ main {
         }
     }
 }
+
+// portfolio
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #151515;
+    color: #fff;
+    font-family: $f-roboto;
+    .portfolio {
+        width: 30%;
+        padding-left: 15px;
+        h1 {
+            font-size: 28px;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    }
+    .proyectos {
+        width: 70%;
+        display: flex;
+    }
+    .card{
+        position: relative;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        border-radius: 20px;
+        margin-inline: 30px;
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .logo {
+                position: relative;
+                width: 240px;
+                transition: 0.5s;
+                transition-delay: 0.5s;
+                h1 {
+                    font-size: 38px;
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    color: #fff;
+                    text-align: center;
+                    span {
+                        color: skyblue;
+                    }
+                }
+            }
+        }
+        .circle::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #191919;
+            border: 5px solid var(--clr);
+            filter: drop-shadow(0 0 5px var(--clr)) drop-shadow(0 0 40px var(--clr));
+            transition: 0.5s, background 0.5s;
+            transition-delay: 0.75s,1s;
+        }
+        .content {
+            position: relative;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            padding: 20px 20px 20px 40px;
+            opacity: 0;
+            transition: 0.5s;
+            visibility: hidden;
+            h2 {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 1.5em;
+                line-height: 1em;
+            }
+            p {
+                color: #fff;
+                margin-top: 15px;
+            }
+            a {
+                position: relative;
+                color: #111;
+                background: #fff;
+                padding: 10px 20px;
+                border-radius: 10px;
+                display: inline-block;
+                text-decoration: none;
+                font-weight: 600;
+                margin-top: 20px;
+            
+            }
+        }
+    }
+    .card:hover {
+        width: 300px;
+        transition-delay: 0.5s;
+        .circle .logo {
+            transform: scale(0);
+            transition-delay: 0s;
+        }
+        .content {
+            transition-delay: 0.75s;
+            opacity: 1;
+            visibility: visible;
+            left: 0;
+        }
+    }
+    .card:hover .circle::before {
+        transition-delay: 0.5s;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        background: var(--clr);
+    }
+}
+@media (max-width: 860px) {
+    main {
+        display: grid;
+        grid-template: 
+        "portfolio" 200px
+        "proyectos" auto
+        300px;
+        height: auto;
+        .portfolio {
+            width: 100%;
+            text-align: center;
+            padding-left: 0;
+        }
+        .proyectos {
+            display: grid;
+            padding: 10%;
+            .card,
+            .circle{
+                min-width: auto;
+                margin-block: 30px;
+                align-content: center;
+                align-items: center;
+                
+            }
+            .content{
+                padding: 20px 20px 20px 40px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
 
 
 
